@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->integer('house_number');
             $table->string('extra_info');
+            $table->string('cep');
             $table->timestamps();
         });
     }
