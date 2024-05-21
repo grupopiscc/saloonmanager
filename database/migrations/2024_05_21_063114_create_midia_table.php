@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('phones', function (Blueprint $table) {
+        Schema::create('midia', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreign('type_id')->references('id')->on('phone_types');
-            $table->foreign('client_id')->references('id')->on('clients');
-            $table->string('description');
-            $table->string('number');
+            $table->string('type');
+            $table->string('extension');
+            $table->string('path');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('phones');
+        Schema::dropIfExists('midia');
     }
 };

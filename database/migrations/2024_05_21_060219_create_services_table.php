@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('services', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('midia_id')->references('id')->on('midia');
+            $table->string('description');
+            $table->integer('time_spent');
+            $table->decimal('price');
             $table->timestamps();
         });
     }

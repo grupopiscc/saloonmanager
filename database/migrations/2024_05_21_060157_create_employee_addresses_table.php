@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employees_addresses', function (Blueprint $table) {
-            $table->id();
+        Schema::create('employee_addresses', function (Blueprint $table) {
+            $table->increments('id');
+            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->boolean('is_user_owner');
+            $table->string('owner_name');
+            $table->string('description');
+            $table->integer('house_number');
+            $table->string('extra_info');
             $table->timestamps();
         });
     }
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employees_addresses');
+        Schema::dropIfExists('employee_addresses');
     }
 };

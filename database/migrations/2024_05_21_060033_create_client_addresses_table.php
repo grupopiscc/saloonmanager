@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('client_addresses', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->foreign('client_id')->references('id')->on('clients');
+            $table->boolean('is_user_owner');
+            $table->string('owner_name');
+            $table->string('description');
+            $table->integer('house_number');
+            $table->string('extra_info');
             $table->timestamps();
         });
     }

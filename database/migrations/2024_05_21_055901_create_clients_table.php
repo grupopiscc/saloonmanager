@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->foreign('midia_id')->references('id')->on('midia');
+            $table->string('full_name');
+            $table->char('gender',2);
+            $table->date('birthday');
+            $table->string('description');
             $table->timestamps();
         });
     }
