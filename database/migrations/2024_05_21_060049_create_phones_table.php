@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('phones', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('type_id');
+            $table->integer('client_id');
             $table->foreign('type_id')->references('id')->on('phone_types');
             $table->foreign('client_id')->references('id')->on('clients');
             $table->string('description');

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('role_id');
+            $table->integer('midia_id');
             $table->foreign('role_id')->references('id')->on('roles');
             $table->foreign('midia_id')->references('id')->on('midia');
             $table->string('description');

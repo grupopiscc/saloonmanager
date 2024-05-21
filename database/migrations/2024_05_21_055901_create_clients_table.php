@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('midia_id');
             $table->foreign('midia_id')->references('id')->on('midia');
             $table->string('full_name');
             $table->char('gender',2);

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('payment_type_id');
             $table->foreign('user_id')->references('id')->on('clients');
             $table->foreign('payment_type_id')->references('id')->on('payment_types');
             $table->decimal('price');

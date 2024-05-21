@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('client_addresses', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('client_id');
             $table->foreign('client_id')->references('id')->on('clients');
             $table->boolean('is_user_owner');
             $table->string('owner_name');
