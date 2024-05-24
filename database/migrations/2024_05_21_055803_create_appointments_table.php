@@ -16,12 +16,13 @@ return new class extends Migration
             $table->integer('service_id');
             $table->integer('client_id');
             $table->integer('employee_id');
-            $table->integer('payment_id');
+            $table->integer('payment_id')->nullable();
             $table->foreign('service_id')->references('id')->on('services');
             $table->foreign('client_id')->references('id')->on('clients');
-            $table->foreign('employee_id')->references('id')->on('employes');
+            $table->foreign('employee_id')->references('id')->on('employees');
             $table->foreign('payment_id')->references('id')->on('payments');
             $table->datetime('app_date');
+            $table->datetime('app_to');
             $table->timestamps();
         });
     }
