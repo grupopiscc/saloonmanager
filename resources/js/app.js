@@ -1,1 +1,3 @@
-import './materialize';
+import './bootstrap';
+
+M.AutoInit();
