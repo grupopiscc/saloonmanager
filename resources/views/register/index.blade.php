@@ -31,12 +31,12 @@
                 <label for="birthday"> Data de nascimento </label>
             </div>
             <div class="input-field">
-                <input type="tel" name="phone" id="phone" class="validate" pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}" placeholder="(XX)XXXXX-XXXX">
-                <label for="phone">Telefone</label>
+                <input type="tel" name="phone" id="phone" class="validate">
+                <label for="phone">Telefone ( Só números )</label>
             </div>
             <div class="row">
                 <div class="col input-field s6">
-                    <input type="text" name="cep" id="cep" class="validate">
+                    <input type="number" name="cep" id="cep" class="validate">
                     <label for="cep">CEP</label>
                 </div>
                 <div class="col input-field s1">

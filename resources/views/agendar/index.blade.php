@@ -39,6 +39,7 @@
         <input type="text" class="timepicker" name="time" id="time">
         <label for="time"> Horário do serviço </label>
     </div>
+    <input type='hidden' name='completed' value='0'>
     <input type='submit' class="wave-effect waves-light btn">
 </form>
 </div>

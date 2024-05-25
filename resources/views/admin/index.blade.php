@@ -11,7 +11,7 @@
             <li class="tab col s4"><a href="#servicos">Serviços</a></li>
         </ul>
     </div>
-    {{$current_select = 0}}
+
     {{-- Div de Horários --}}
     <div class="col s12" id="horarios">
         <br>
@@ -30,10 +30,10 @@
                 @foreach ($appointments as $appointment)
                 <tr>
                     <td>{{$appointment->app_date}}</td>
-                    <td>{{$clients[$appointment->client_id - 1]->full_name}}</td>
+                    <td>{{$appointment->client_name}}</td>
                     <td>{{$service[$appointment->service_id - 1]->description}}</td>
-                    <td>{{$employees[$appointment->employee_id - 1]->full_name}}</td>
-                    <td><a class="material-icons tooltipped" data-position="top" data-tooltip="Adicionar informação" href="{{$appointment->id}}">add_circle</a><a href="#modal_confirm_app {{$current_select = $appointment->id}}" class="material-icons tooltipped modal-trigger" data-position="top" data-tooltip="Cancelar" >close</a></td>
+                    <td>{{$appointment->employee_name}}</td>
+                    <td><a class="material-icons tooltipped" data-position="top" data-tooltip="Finalizar atendimento" href="/agenda/completed/{{$appointment->id}}">check</a><a class="material-icons tooltipped" data-position="top" data-tooltip="Adicionar informação" href="{{$appointment->id}}">add_circle</a></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -65,18 +65,18 @@
             <thead>
                 <tr>
                     <th>Nome</th>
-                    <th>Classificação</th>
+                    <th>Especialidade</th>
                     <th>Telefone</th>
                     <th>Ações</th>
                 </tr>
-            </thead>
+            </thead>    
 
             <tbody>
                 @foreach ($employees as $employee)
                 <tr>
                     <td>{{$employee->full_name}}</td>
-                    <td>Indefinido</td>
-                    <td><a href="https://wa.me/5519994322022"><span class="mdi--whatsapp"></span>(19)99999-9999</a></td>
+                    <td>{{$employee->specialty}}</td>
+                    <td><a href="https://wa.me/55{{$employee->phone}}"><span class="mdi--whatsapp"></span>{{$employee->phone}}</a></td>
                     <td><a class="material-icons tooltipped" data-position="top" data-tooltip="Adicionar informação" href="#">add_circle</a><a href="{{$employee->id}}" class="material-icons tooltipped" data-position="top" data-tooltip="Cancelar" >close</a></td>
                 </tr>
                 @endforeach

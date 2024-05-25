@@ -11,7 +11,7 @@ use App\Models\Service;
 class AdminController extends Controller
 {
     public function index(){
-        $appointments     = Appointment::all();
+        $appointments     = Appointment::where('completed',false)->get();
         $employees        = Employee::all();
         $clients          = Client::all();
         $service          = Service::all();

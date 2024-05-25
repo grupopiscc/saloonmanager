@@ -48,6 +48,7 @@ Route::controller(ServiceController::class)->group(function(){
 Route::controller(AppointmentController::class)->group(function(){
     Route::get('/agendar', 'index')->name('site.register.appointment');
     Route::post('/agendar/save', 'save_new')->name('site.save.appointment');
+    Route::get('/agenda/completed/{id?}', 'mark_as_complete');
 });
 
 Route::controller(AdminController::class)->group(function(){

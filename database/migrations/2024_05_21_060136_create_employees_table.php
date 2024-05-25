@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('full_name');
             $table->char('gender',2);
             $table->date('birthday');
-            $table->string('description');
+            $table->string('specialty');
+            $table->integer('phone');
+            $table->integer('cep');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

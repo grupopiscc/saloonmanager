@@ -23,7 +23,7 @@ class EmployeeController extends Controller
         $dados = $req->all();
         Employee::create($dados);
 
-        return view('register.index');
+        return view('register.employee');
     }
 
     public function edit($id){
